@@ -1,0 +1,267 @@
+[
+    {
+        "id": "3914e65a.4fd64a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b06bbbae.e6b6e8",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "28d56f79.73205",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Customer Care",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "63ffeaac.91a074",
+        "type": "ui_group",
+        "z": "",
+        "name": "ChatBot for Customers",
+        "tab": "28d56f79.73205",
+        "order": 1,
+        "disp": true,
+        "width": 12,
+        "collapse": false
+    },
+    {
+        "id": "2893c63d.8ca9ba",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "57e3de8d.e2376",
+        "type": "ui_form",
+        "z": "3914e65a.4fd64a",
+        "name": "",
+        "label": "",
+        "group": "63ffeaac.91a074",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Give your input",
+                "value": "text",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "text": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "x": 101,
+        "y": 200,
+        "wires": [
+            [
+                "50832d91.e25514"
+            ]
+        ]
+    },
+    {
+        "id": "50832d91.e25514",
+        "type": "function",
+        "z": "3914e65a.4fd64a",
+        "name": "",
+        "func": "msg.payload = msg.payload.text;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 280,
+        "y": 160,
+        "wires": [
+            [
+                "fe4d9786.9d01a8",
+                "b04119.b20f1ee8"
+            ]
+        ]
+    },
+    {
+        "id": "afad977d.fcaa98",
+        "type": "function",
+        "z": "3914e65a.4fd64a",
+        "name": "",
+        "func": "msg.payload = msg.payload.output.text[0];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 710,
+        "y": 260,
+        "wires": [
+            [
+                "f0143820.4b8208"
+            ]
+        ]
+    },
+    {
+        "id": "fe4d9786.9d01a8",
+        "type": "watson-conversation-v1",
+        "z": "3914e65a.4fd64a",
+        "name": "Customer Care",
+        "workspaceid": "53a4f31f-295d-4c8d-ae20-888121d2b560",
+        "multiuser": false,
+        "context": true,
+        "empty-payload": false,
+        "service-endpoint": "https://api.eu-gb.assistant.watson.cloud.ibm.com/instances/a85f0050-96af-469d-a1d8-fbe3f656e189",
+        "timeout": "",
+        "optout-learning": false,
+        "x": 520,
+        "y": 180,
+        "wires": [
+            [
+                "4035934a.41471c",
+                "afad977d.fcaa98"
+            ]
+        ]
+    },
+    {
+        "id": "b04119.b20f1ee8",
+        "type": "ui_text",
+        "z": "3914e65a.4fd64a",
+        "group": "63ffeaac.91a074",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "You :",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 510,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "4035934a.41471c",
+        "type": "debug",
+        "z": "3914e65a.4fd64a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 810,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f0143820.4b8208",
+        "type": "ui_text",
+        "z": "3914e65a.4fd64a",
+        "group": "63ffeaac.91a074",
+        "order": 3,
+        "width": 12,
+        "height": 6,
+        "name": "",
+        "label": "bot",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 910,
+        "y": 260,
+        "wires": []
+    }
+]
