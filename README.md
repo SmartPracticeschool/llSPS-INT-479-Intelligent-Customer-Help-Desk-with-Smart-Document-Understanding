@@ -11,6 +11,6 @@ In Watson Discovery I have added ecobee3_userguide.
 
 Node-Red Dashboard link after deploying : https://node-red-ubobq.eu-gb.mybluemix.net/ui/
 
-Youtube video link is : https://youtu.be/A4M6yowisVg
+Youtube video link is : https://youtu.be/0yXts6Ks9Po
 
 You can find the discovery manual, cloud function code, node-red flow and assistant skill file above.
